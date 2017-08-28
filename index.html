@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body ng-app="myApp" ng-controller="MainController">
+    <header class="header-phonebook">
+        <h1>Phonebook</h1>
+    </header>
+    <div class="show-phone-checkbox">
+        <label>Show phones</label>
+        <input type="checkbox" ng-model="isPhoneShown">
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <td>Full Name</td>
+                <td ng-if="isPhoneShown">Phone number</td>
+            </tr>
+        </thead>
+        <tbody ng-repeat="contact in contacts">
+            <tr ng-class="{red:contact.name.charAt(0)=='a', blue:contact.name.charAt(0)=='b'}">
+                <td>
+                    {{contact.name}}
+                </td>
+                <td ng-if="isPhoneShown">
+                    {{contact.phone}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-material/angular-material.min.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/MainController.js"></script>
+
+
+</body>
+</html>

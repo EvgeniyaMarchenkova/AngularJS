@@ -1,0 +1,26 @@
+.header-phonebook {
+    text-align: center;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color:blue;
+}
+
+.show-phone-checkbox {
+    text-align: center;
+    padding: 10px;
+}
+
+table {
+    margin: 0 auto;
+    border: 1 px solid gray;
+}
+
+thead {
+    font-weight: bold;
+    font-size: larger;
+}
