@@ -11,7 +11,7 @@
         <h1>Phonebook</h1>
 
     <form>Enter name
-        <input type="text" ng-model="substrFilter">{{substrFilter}}
+        <input type="text" ng-model="substrFilter" ng-change="updateList()">
     </form>
 
     <div class="show-phone-checkbox">
@@ -26,7 +26,7 @@
             </tr>
         </thead>
         <tbody ng-repeat="contact in shownContacts">
-            <tr ng-class="{red:contact.name.charAt(0)=='a', blue:contact.name.charAt(0)=='b'}">
+            <tr ng-class="{red: contact.name.charAt(0) === 'a', blue: contact.name.charAt(0) === 'b'}">
                 <td>
                     {{contact.name}}
                 </td>
