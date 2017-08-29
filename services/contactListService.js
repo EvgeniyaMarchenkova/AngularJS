@@ -13,10 +13,12 @@ app.service('contactListService', function(filterFilter) {
         return contacts;
     }
     this.getContact = function(str) {
-        console.log(str)
         return filterFilter(contacts, str)
     }
     this.addContact = function(name, phone) {
+        contacts.push({'name':name, 'phone':phone})
+    }
+    this.removeContact = function(name, phone) {
         contacts.push({'name':name, 'phone':phone})
     }
 });
