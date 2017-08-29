@@ -5,6 +5,8 @@
     <title>Title</title>
     <link rel="stylesheet" href="node_modules/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <script src="https://use.fontawesome.com/6b81fe63e5.js"></script>
+
 </head>
 <body ng-app="myApp" ng-controller="MainController">
     <header class="header-phonebook">
@@ -32,6 +34,9 @@
                 </td>
                 <td ng-if="isPhoneShown">
                     {{contact.phone}}
+                </td>
+                <td>
+                    <button ng-click="removeContact(contact.name)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
                 </td>
             </tr>
         </tbody>
