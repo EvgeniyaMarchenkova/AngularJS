@@ -1,8 +1,9 @@
 var app = angular.module('myApp');
 
 app.controller('MainController', function ($scope, contactListService) {
-    $scope.shownContacts = contactListService.getAll();
     $scope.isPhoneShown = true;
+    contactListService.updateStorage(contactListService.startContacts);
+    $scope.shownContacts = contactListService.getStorage();
 
     $scope.updateList = function () {
         $scope.shownContacts = contactListService.getContact($scope.substrFilter);
@@ -10,7 +11,7 @@ app.controller('MainController', function ($scope, contactListService) {
 
     $scope.removeContact = function(name) {
         contactListService.removeContact(name);
-        $scope.shownContacts = contactListService.getAll();
+        $scope.shownContacts = contactListService.getStorage();
         $scope.substrFilter = '';
     }
     
