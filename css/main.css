@@ -1,4 +1,4 @@
-.header-phonebook {
+.header-phonebook, form {
     text-align: center;
 }
 
@@ -24,3 +24,4 @@ thead {
     font-weight: bold;
     font-size: larger;
 }
+

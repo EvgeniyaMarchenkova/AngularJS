@@ -1,0 +1,10 @@
+<table>
+    <thead>
+        <tr>
+            <td>Full Name</td>
+            <td ng-if="isPhoneShown">Phone number</td>
+        </tr>
+    </thead>
+    <tbody ng-repeat="contact in shownContacts| orderBy:'name'" item-contact  data-contact = "contact">
+    </tbody>
+</table>
