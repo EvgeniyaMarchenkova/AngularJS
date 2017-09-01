@@ -2,10 +2,12 @@
     <td>
         {{::contact.name}}
     </td>
-    <td ng-if="isPhoneShown">
+    <td ng-show="isPhoneShown">
         {{::contact.phone}}
     </td>
     <td>
-        <button ng-click="removeContact(contact.name)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+        <button ng-click="removeContact(contact.name)">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </button>
     </td>
 </tr>
