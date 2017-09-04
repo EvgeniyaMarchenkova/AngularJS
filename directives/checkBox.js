@@ -8,5 +8,5 @@ angular.module('myApp').directive('checkBox', function () {
         controller: function ($scope) {
             $scope.isPhoneShown = true;
         }
-    };
-});
+    }
+})

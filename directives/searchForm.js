@@ -8,5 +8,5 @@ angular.module('myApp').directive('searchForm', function () {
         controller: function ($scope) {
             $scope.inputValue = '';
         }
-    };
-});
+    }
+})

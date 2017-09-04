@@ -11,7 +11,7 @@ angular.module('myApp').directive('phoneBook', function () {
             }
 
             $scope.switchCheckbox = function (flag) {
-                $scope.isPhoneShown = !$scope.isPhoneShown;
+                $scope.isPhoneShown = flag;
             }
 
             $scope.removeContact = function(name) {
@@ -20,5 +20,5 @@ angular.module('myApp').directive('phoneBook', function () {
                 $scope.substrFilter = '';
             }
         }
-    };
-});
+    }
+})
