@@ -5,11 +5,10 @@ angular.module('myApp').directive('itemContact', function () {
         scope: {
             'contact': '=',
             'isPhoneShown': '=',
-            'name': '@'
+            'name': '@',
+            'removeHandler': '&'
         },
         link: function ($scope, $element) {
-            console.log($scope.$parent.isPhoneShown);
-            console.log($scope.isPhoneShown);
             if ($scope.name.charAt(0) === 'a') {
                 $element.addClass('red');
             }

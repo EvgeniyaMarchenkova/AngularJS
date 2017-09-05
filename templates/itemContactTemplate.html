@@ -6,7 +6,7 @@
         {{::contact.phone}}
     </td>
     <td>
-        <button ng-click="removeContact(contact.name)">
+        <button ng-click="removeHandler({value: name})">
             <i class="fa fa-trash-o" aria-hidden="true"></i>
         </button>
     </td>

@@ -6,9 +6,10 @@
         </tr>
     </thead>
     <tbody ng-repeat="contact in shownContacts| orderBy: 'name'"
-           contact="contact"
-           isPhoneShown="isPhoneShown"
+           contact = "contact"
+           is-phone-shown = "isPhoneShown"
            name = "{{contact.name}}"
+           remove-handler = "removeContact(value)"
            item-contact>
     </tbody>
 </table>
