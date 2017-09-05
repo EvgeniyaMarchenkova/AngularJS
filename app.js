@@ -17,10 +17,37 @@ angular.module('myApp', ['ui.router'])
         $stateProvider
             .state('contactsList', {
                 url: '/',
-                templateUrl:  './templates/phoneBookTemplate.html'
+                templateUrl:  './templates/phoneBookTemplate.html',
+                controller: function ($scope, contactListService) {
+                    $scope.isPhoneShown = true;
+                    $scope.shownContacts = contactListService.getStorage();
+
+                    $scope.updateList = function (value) {
+                        $scope.shownContacts = contactListService.getContact(value);
+                    }
+
+                    $scope.switchCheckbox = function (flag) {
+                        $scope.isPhoneShown = flag;
+                    }
+
+                    $scope.removeContact = function(name) {
+                        contactListService.removeContact(name);
+                        $scope.shownContacts = contactListService.getStorage();
+                        $scope.substrFilter = '';
+                    }
+                }
             })
-            .state('contactForm', {
-                url: '/contactForm',
-                templateUrl:  './templates/contactFormTemplate.html'
-            });
+            .state('contacts', {
+                abstract: true,
+                url: '/contacts',
+                templateUrl: './templates/contactFormTemplate.html'
+            })
+            .state('contacts.add', {
+                url: '/add',
+                templateUrl: './templates/addTemplate.html'
+            })
+            .state('contacts.update', {
+                url: '/update',
+                templateUrl: './templates/updateTemplate.html'
+            })
     })

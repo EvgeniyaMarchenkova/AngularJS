@@ -1,4 +1,4 @@
-.header-phonebook, form {
+body {
     text-align: center;
 }
 
@@ -25,3 +25,17 @@ thead {
     font-size: larger;
 }
 
+.add-contact-form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.add-contact-form div {
+    text-align: left;
+}
+
+.add-contact-form input {
+    width: 250px;
+    margin: 10px 10px 10px 0;
+    padding: 5px;
+}

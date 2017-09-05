@@ -1,5 +1,7 @@
 <div class="wrapper">
-    <button ui-sref="contactForm">Add new contact</button>
+
+    <button ui-sref="contacts.add">Add new contact</button>
+    <button ui-sref="contacts.update">Update contact</button>
     <search-form update-handler="updateList(value)"></search-form>
     <check-box checkbox-handler="switchCheckbox(value)"></check-box>
     <contact-list></contact-list>

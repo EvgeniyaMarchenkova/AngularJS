@@ -1,4 +1,17 @@
-<form>
-    <hesder>Contact Form</hesder>
-    <button ui-sref="contactsList">Close</button>
-</form>
+<div class="add-contact-form">
+    <form>
+        <h2>Contact Form</h2>
+        <div>
+            <input type="text" placeholder="Enter name"><label>Full name</label>
+        </div>
+        <div>
+            <input type="text" placeholder="Enter phone"><label>Phone number</label>
+        </div>
+        <div>
+            <ui-view></ui-view>
+            <button ui-sref="contactsList">Close</button>
+        </div>
+
+    </form>
+
+</div>
