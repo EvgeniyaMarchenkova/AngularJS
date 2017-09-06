@@ -4,8 +4,10 @@ angular.module('myApp').service('contactListService', function(filterFilter, $wi
         return filterFilter(this.getStorage(), str)
     }
 
-    this.addContact = function(name, phone) {
-        this.getStorage().push({'name': name, 'phone': phone})
+    this.addContact = function(data) {
+        var listContacts = this.getStorage();
+        listContacts.push({'name': data.name, 'phone': data.phone, 'id': data.id});
+        this.updateStorage(listContacts);
     }
 
     this.removeContact = function(name) {

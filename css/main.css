@@ -39,3 +39,7 @@ thead {
     margin: 10px 10px 10px 0;
     padding: 5px;
 }
+
+form {
+    margin-top: 10px;
+}
