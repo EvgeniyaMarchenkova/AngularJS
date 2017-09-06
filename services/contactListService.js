@@ -6,6 +6,15 @@ angular.module('myApp').service('contactListService', function(filterFilter, $wi
 
     this.addContact = function(data) {
         var listContacts = this.getStorage();
+        var deletedContactIndex;
+        listContacts.forEach(function(contact, i) {
+              if (contact.id === data.id) {
+                  deletedContactIndex = i;
+              }
+        })
+        if (deletedContactIndex) {
+            listContacts.splice(deletedContactIndex, 1);
+        }
         listContacts.push({'name': data.name, 'phone': data.phone, 'id': data.id});
         this.updateStorage(listContacts);
     }
@@ -24,5 +33,14 @@ angular.module('myApp').service('contactListService', function(filterFilter, $wi
     this.updateStorage = function(arr) {
         $window.localStorage.contacts = JSON.stringify(arr);
     }
-
-});
+    
+    this.findElementById = function (id) {
+        var findedElm;
+        this.getStorage().forEach(function( contact ) {
+            if (contact.id == id) {
+                findedElm = contact;
+            }
+        })
+        return findedElm;
+    }
+})

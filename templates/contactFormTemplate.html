@@ -1,17 +1,16 @@
 <div class="add-contact-form">
-    <form>
+    <form ng-submit="processForm()">
         <h2>Contact Form</h2>
         <div>
-            <input type="text" placeholder="Enter name"><label>Full name</label>
+            <input type="text" placeholder="Enter name" ng-model = "formData.name"><label>Full name</label>
         </div>
         <div>
-            <input type="text" placeholder="Enter phone"><label>Phone number</label>
+            <input type="text" placeholder="Enter phone" ng-model = "formData.phone"><label>Phone number</label>
         </div>
         <div>
             <ui-view></ui-view>
             <button ui-sref="contactsList">Close</button>
         </div>
-
     </form>
 
 </div>

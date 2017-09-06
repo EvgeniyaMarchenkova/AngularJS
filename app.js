@@ -41,13 +41,22 @@ angular.module('myApp', ['ui.router'])
                 abstract: true,
                 url: '/contacts',
                 templateUrl: './templates/contactFormTemplate.html',
-                controller: function ($scope) {
-                    $scope.formData = {};
+                controller: function ($scope, contactListService, $state, $stateParams) {
+                    $scope.formData = contactListService.findElementById($stateParams.contactId) || {};
+
+                    $scope.processForm = function() {
+                        console.log($scope.formData);
+                        contactListService.addContact($scope.formData);
+                        $state.go('contactsList');
+                    };
                 }
             })
             .state('contacts.add', {
                 url: '/add',
-                templateUrl: './templates/addTemplate.html'
+                templateUrl: './templates/addTemplate.html',
+                controller: function ($scope, contactListService, $state ) {
+
+                }
             })
             .state('contacts.update', {
                 url: '/:contactId',
