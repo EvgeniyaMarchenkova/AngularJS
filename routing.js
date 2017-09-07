@@ -1,5 +1,5 @@
 angular.module('myApp')
-    .config(function ($stateProvider) {
+    .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('contactsList', {
                 url: '/',
@@ -20,4 +20,6 @@ angular.module('myApp')
                 url: '/:contactId',
                 templateUrl: './templates/updateTemplate.html'
             })
+
+        $urlRouterProvider.when('', '/');
     })

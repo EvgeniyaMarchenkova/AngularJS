@@ -43,3 +43,7 @@ thead {
 form {
     margin-top: 10px;
 }
+
+.error-message {
+    margin-bottom: 10px;
+}

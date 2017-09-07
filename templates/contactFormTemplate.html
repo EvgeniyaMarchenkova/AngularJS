@@ -1,11 +1,18 @@
-<div class="add-contact-form">
-    <form ng-submit="processForm()">
+<div class="add-contact-form" >
+    <form name="contactForm" ng-submit="processForm()" novalidate >
         <h2>Contact Form</h2>
         <div>
-            <input type="text" placeholder="Enter name" ng-model = "formData.name"><label>Full name</label>
+            <input name="name" type="text" placeholder="Enter name" ng-model="formData.name" required><label>Full name</label>
+        </div>
+        <div ng-messages="contactForm.name.$error">
+            <div class="red error-message"  ng-message="required"  ng-show="contactForm.name.$touched">Please enter full name</div>
         </div>
         <div>
-            <input type="text" placeholder="Enter phone" ng-model = "formData.phone"><label>Phone number</label>
+            <input name="phone" type="tel" placeholder="Enter phone" ng-model="formData.phone" ng-pattern="/^\+375[0-9]{9}$/" required><label>Phone number</label>
+        </div>
+        <div ng-messages="contactForm.phone.$error">
+            <div class="red error-message" ng-message="required" ng-show="contactForm.phone.$touched">Please enter phone number</div>
+            <div class="red error-message" ng-message="pattern" ng-show="contactForm.phone.$touched">Please enter number in +375XXXXXXXXX format</div>
         </div>
         <div>
             <ui-view></ui-view>
