@@ -1,4 +1,3 @@
-
 angular.module('myApp').service('contactListService', function(filterFilter, $window) {
     this.getContact = function(str) {
         return filterFilter(this.getStorage(), str)
@@ -6,19 +5,21 @@ angular.module('myApp').service('contactListService', function(filterFilter, $wi
 
     this.addContact = function(data) {
         var listContacts = this.getStorage();
-        var deletedContactIndex;
-        listContacts.forEach(function(contact, i) {
-              if (contact.id === data.id) {
-                  deletedContactIndex = i;
-              }
-        })
-        if (deletedContactIndex) {
-            listContacts.splice(deletedContactIndex, 1);
-        }
-        listContacts.push({'name': data.name, 'phone': data.phone, 'id': data.id});
+        listContacts.push({'name': data.name, 'phone': data.phone, 'id': Date.now()});
         this.updateStorage(listContacts);
     }
-
+    
+    this.updateContact = function (data) {
+        var listContacts = this.getStorage();
+        listContacts.forEach(function(contact, i) {
+            if (contact.id === data.id) {
+                contact.name = data.name;
+                contact.phone = data.phone;
+            }
+        })
+        this.updateStorage(listContacts);
+    }
+    
     this.removeContact = function(name) {
         var updatedList = this.getStorage().filter(function (contact, i) {
             return contact.name !== name;

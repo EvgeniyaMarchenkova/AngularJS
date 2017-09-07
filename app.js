@@ -8,61 +8,8 @@ angular.module('myApp', ['ui.router'])
             {name: 'Androu White', phone:'1232133', id: 503},
             {name: 'Bill White', phone:'1232133', id: 278}
         ];
-    
+
         contactListService.updateStorage(startContacts);
         $state.go('contactsList');
-
     })
-    .config(function ($stateProvider) {
-        $stateProvider
-            .state('contactsList', {
-                url: '/',
-                templateUrl:  './templates/phoneBookTemplate.html',
-                controller: function ($scope, contactListService) {
-                    $scope.isPhoneShown = true;
-                    $scope.shownContacts = contactListService.getStorage();
 
-                    $scope.updateList = function (value) {
-                        $scope.shownContacts = contactListService.getContact(value);
-                    }
-
-                    $scope.switchCheckbox = function (flag) {
-                        $scope.isPhoneShown = flag;
-                    }
-
-                    $scope.removeContact = function(name) {
-                        contactListService.removeContact(name);
-                        $scope.shownContacts = contactListService.getStorage();
-                        $scope.substrFilter = '';
-                    }
-                }
-            })
-            .state('contacts', {
-                abstract: true,
-                url: '/contacts',
-                templateUrl: './templates/contactFormTemplate.html',
-                controller: function ($scope, contactListService, $state, $stateParams) {
-                    $scope.formData = contactListService.findElementById($stateParams.contactId) || {};
-
-                    $scope.processForm = function() {
-                        console.log($scope.formData);
-                        contactListService.addContact($scope.formData);
-                        $state.go('contactsList');
-                    };
-                }
-            })
-            .state('contacts.add', {
-                url: '/add',
-                templateUrl: './templates/addTemplate.html',
-                controller: function ($scope, contactListService, $state ) {
-
-                }
-            })
-            .state('contacts.update', {
-                url: '/:contactId',
-                templateUrl: './templates/updateTemplate.html',
-                params: {
-                    contactId: '/'
-                }
-            })
-    })
