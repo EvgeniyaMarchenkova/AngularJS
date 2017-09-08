@@ -1,5 +1,5 @@
 angular.module('myApp').service('contactListService', function(filterFilter, $window) {
-    this.getContact = function(str) {
+    this.getFilteredContacts = function(str) {
         return filterFilter(this.getStorage(), str)
     }
 

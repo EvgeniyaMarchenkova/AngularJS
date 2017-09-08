@@ -3,7 +3,7 @@ angular.module('myApp').controller('contactListController', function ($scope, co
     $scope.shownContacts = contactListService.getStorage();
 
     $scope.updateList = function (value) {
-        $scope.shownContacts = contactListService.getContact(value);
+        $scope.shownContacts = contactListService.getFilteredContacts(value);
     }
 
     $scope.switchCheckbox = function (flag) {

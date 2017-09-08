@@ -2,10 +2,11 @@
     <form name="contactForm" ng-submit="processForm()" novalidate >
         <h2>Contact Form</h2>
         <div>
-            <input name="name" type="text" placeholder="Enter name" ng-model="formData.name" required><label>Full name</label>
+            <input name="name" type="text" placeholder="Enter name" ng-model="formData.name" required is-unique><label>Full name</label>
         </div>
         <div ng-messages="contactForm.name.$error">
             <div class="red error-message"  ng-message="required"  ng-show="contactForm.name.$touched">Please enter full name</div>
+            <span class="red error-message"  ng-message="isUnique"  ng-show="contactForm.name.$touched">This contact is recorded already </span>
         </div>
         <div>
             <input name="phone" type="tel" placeholder="Enter phone" ng-model="formData.phone" ng-pattern="/^\+375[0-9]{9}$/" required><label>Phone number</label>
